@@ -1,5 +1,9 @@
 package connection;
 
+import com.example.keys.HelloController;
+import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
+
 import java.sql.*;
 
 public final class ConnectionManager {

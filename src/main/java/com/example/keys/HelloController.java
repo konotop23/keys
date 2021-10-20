@@ -14,8 +14,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class HelloController {
@@ -42,43 +44,80 @@ public class HelloController {
     private Button mainButtonFirst;
 
     @FXML
+    private Label textLabel;
+
+
+    @FXML
     void initialize() {
-        mainButtonFirst.setOnAction(event -> {
-            String nameText = textFieldForName.getText().trim();
-            String keyText = textFieldForKeys.getText().trim();
+        mainButtonFirst.setOnAction(event -> setMainButtonFirst());
+        mainButtonSecond.setOnAction(event -> setMainButtonSecond());
+        mainButtonMore.setOnAction(event -> setMainButtonMore());
+    }
 
-            String createPersonB22_1 = "INSERT INTO keys_people ("+ Const.NAME_PERSON +", " + Const.LIST_OF_KEYS_B22_1 + ") VALUES (?,?)";
-            String createPersonB22_2 = "INSERT INTO keys_people ("+ Const.NAME_PERSON +", "+ Const.ID_OF_CARD + ", " + Const.LIST_OF_KEYS_B22_2 + ")";
 
-            try {
-                Connection connection = ConnectionManager.open();
-                PreparedStatement preparedStatement = connection.prepareStatement(createPersonB22_1);
-                preparedStatement.setString(1,nameText);
-                preparedStatement.setString(2,keyText);
-                preparedStatement.executeUpdate();
+    public void setMainButtonFirst(){
+        String nameText = textFieldForName.getText().trim();
+        String keyText = textFieldForKeys.getText().trim();
 
-                preparedStatement.close();
-                connection.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        });
-        mainButtonMore.setOnAction(event ->{
-            mainButtonMore.getScene().getWindow().hide();
+        String createPersonB22_1 = "INSERT INTO keys_people ("+ Const.NAME_PERSON +", " + Const.LIST_OF_KEYS_B22_1 + ") VALUES (?,?)";
 
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(HelloApplication.class.getResource("app.fxml"));
+        try {
+            Connection connection = ConnectionManager.open();
+            PreparedStatement preparedStatement = connection.prepareStatement(createPersonB22_1);
+            preparedStatement.setString(1,nameText);
+            preparedStatement.setString(2,keyText);
+            preparedStatement.executeUpdate();
 
-            try {
-                loader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            preparedStatement.close();
+            connection.close();
 
-            Parent root = loader.getRoot();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.showAndWait();
-        });
+            textLabel.setTextFill(Color.FORESTGREEN);
+            textLabel.setText("Успешно добавлено");
+        } catch (SQLException e) {
+            textLabel.setTextFill(Color.RED);
+            textLabel.setText("Неудачное добавление");
+            e.printStackTrace();
+        }
+    }
+
+    public void setMainButtonSecond(){
+        String nameText = textFieldForName.getText().trim();
+        String keyText = textFieldForKeys.getText().trim();
+
+        String createPersonB22_2 = "INSERT INTO keys_people ("+ Const.NAME_PERSON +", " + Const.LIST_OF_KEYS_B22_2 + ") VALUES (?,?)";
+
+        try {
+            Connection connection = ConnectionManager.open();
+            PreparedStatement preparedStatement = connection.prepareStatement(createPersonB22_2);
+            preparedStatement.setString(1,nameText);
+            preparedStatement.setString(2,keyText);
+            preparedStatement.executeUpdate();
+
+            preparedStatement.close();
+            connection.close();
+
+            textLabel.setTextFill(Color.FORESTGREEN);
+            textLabel.setText("Успешно добавлено");
+        } catch (SQLException e) {
+            System.out.println("Неудачное добавление"); e.printStackTrace();
+        }
+    }
+
+    public void setMainButtonMore(){
+        mainButtonMore.getScene().getWindow().hide();
+
+        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("app.fxml"));
+
+        try {
+            loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Parent root = loader.getRoot();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root,800,600));
+        stage.setResizable(false);
+        stage.showAndWait();
     }
 }

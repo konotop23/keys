@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -10,43 +13,57 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Button?>
 
-<AnchorPane style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.keys.HelloController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.keys.HelloController">
    <children>
-      <Label layoutX="188.0" layoutY="22.0" prefHeight="49.0" prefWidth="260.0" text="SPBGUT keys" textFill="WHITE">
-         <font>
-            <Font name="Bell MT" size="41.0" />
-         </font>
-      </Label>
-      <AnchorPane layoutY="83.0" prefHeight="317.0" prefWidth="635.0" style="-fx-background-color: fafafa;">
-         <children>
-            <Button fx:id="mainButtonSecond" layoutX="340.0" layoutY="237.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="113.0" style="-fx-background-color: #F39c63;" text="Б22-2">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Button>
-            <Button fx:id="mainButtonFirst" layoutX="181.0" layoutY="237.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="113.0" style="-fx-background-color: #F39c63;" text="Б22-1">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Button>
-            <TextField fx:id="textFieldForName" layoutX="181.0" layoutY="42.0" prefHeight="31.0" prefWidth="272.0" promptText="Введите ФИО" />
-            <Text layoutX="196.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Добавление пользователя">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
-            <TextArea fx:id="textFieldForKeys" layoutX="181.0" layoutY="95.0" prefHeight="115.0" prefWidth="272.0" promptText="Введите список ключей" />
-         </children>
-      </AnchorPane>
-      <ImageView fitHeight="64.0" fitWidth="75.0" layoutX="443.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../java/assets/sut.png" />
-         </image>
-      </ImageView>
-      <Button fx:id="mainButtonMore" layoutX="540.0" layoutY="21.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="81.0" style="-fx-background-color: #F39c63;" text="меню">
+      <Button fx:id="mainButtonMore" layoutX="698.0" layoutY="22.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="81.0" style="-fx-background-color: #F39c63;" text="меню">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
+      <ImageView fitHeight="98.0" fitWidth="73.0" layoutX="571.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../java/assets/sut.png" />
+         </image>
+      </ImageView>
+      <Label graphicTextGap="1.0" layoutX="241.0" layoutY="23.0" prefHeight="64.0" prefWidth="318.0" text="SPBGUT keys" textAlignment="CENTER" textFill="#f2e0d1">
+         <font>
+            <Font name="Bell MT" size="52.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutY="108.0" prefHeight="495.0" prefWidth="800.0" style="-fx-background-color: fafafa;">
+         <children>
+            <Button fx:id="mainButtonSecond" layoutX="454.0" layoutY="383.0" mnemonicParsing="false" prefHeight="81.0" prefWidth="113.0" style="-fx-background-color: #F39c63;" text="Б22-2">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="mainButtonFirst" layoutX="249.0" layoutY="383.0" mnemonicParsing="false" prefHeight="81.0" prefWidth="113.0" style="-fx-background-color: #F39c63;" text="Б22-1">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <TextField fx:id="textFieldForName" layoutX="249.0" layoutY="90.0" prefHeight="49.0" prefWidth="318.0" promptText="Введите ФИО">
+               <font>
+                  <Font size="20.0" />
+               </font></TextField>
+            <Text layoutX="226.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Добавление пользователя">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <TextArea fx:id="textFieldForKeys" layoutX="249.0" layoutY="157.0" prefHeight="149.0" prefWidth="318.0" promptText="Введите список ключей">
+               <font>
+                  <Font size="20.0" />
+               </font></TextArea>
+            <Label fx:id="textLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="332.0" prefHeight="36.0" prefWidth="800.0" textAlignment="CENTER" textFill="#07eb0e">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </AnchorPane>
    </children>
 </AnchorPane>
