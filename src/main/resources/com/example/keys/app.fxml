@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="636.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.keys.FirstOptionWindow">
+    <children>
+        <AnchorPane layoutY="83.0" prefHeight="317.0" prefWidth="635.0" style="-fx-background-color: fafafa;">
+            <children>
+                <Button fx:id="checkBaseTwo" layoutX="332.0" layoutY="159.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="210.0" style="-fx-background-color: #F39c63;" text="Просмотр базы к2">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Button>
+            <Button fx:id="checkListKey" layoutX="14.0" layoutY="58.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="187.0" style="-fx-background-color: #F39c63;" text="Просмотр списка ключей">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="checkBaseOne" layoutX="96.0" layoutY="159.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="210.0" style="-fx-background-color: #F39c63;" text="Просмотр базы к1">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <TextField fx:id="checkListKeyField" alignment="TOP_CENTER" layoutX="14.0" layoutY="14.0" promptText="Введите ФИО" />
+            <TextField fx:id="changeListKeyField" alignment="TOP_CENTER" layoutX="224.0" layoutY="14.0" promptText="Введите ФИО" />
+            <Button fx:id="changeListKey" layoutX="224.0" layoutY="58.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="187.0" style="-fx-background-color: #F39c63;" text="Изменить список ключей">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="deletePerson" layoutX="437.0" layoutY="58.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="187.0" style="-fx-background-color: #F39c63;" text="Удалить пользователя">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <TextField fx:id="deletePersonField" alignment="TOP_CENTER" layoutX="437.0" layoutY="14.0" promptText="Введите ФИО" />
+            <Button fx:id="back" layoutX="213.0" layoutY="254.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="210.0" style="-fx-background-color: #F39c63;" text="Назад">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            </children></AnchorPane>
+        <Label layoutX="170.0" layoutY="23.0" prefHeight="49.0" prefWidth="260.0" text="SPBGUT keys" textFill="WHITE">
+            <font>
+                <Font name="Bell MT" size="41.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>
