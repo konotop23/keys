@@ -13,26 +13,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class HelloController {
 
     @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
     private Button mainButtonSecond;
-
-    @FXML
-    private Button mainButtonMore;
 
     @FXML
     private TextField textFieldForName;
@@ -47,11 +35,10 @@ public class HelloController {
     private Label textLabel;
 
 
+
     @FXML
     void initialize() {
-        mainButtonFirst.setOnAction(event -> setMainButtonFirst());
-        mainButtonSecond.setOnAction(event -> setMainButtonSecond());
-        mainButtonMore.setOnAction(event -> setMainButtonMore());
+
     }
 
 
@@ -62,17 +49,25 @@ public class HelloController {
         String createPersonB22_1 = "INSERT INTO keys_people ("+ Const.NAME_PERSON +", " + Const.LIST_OF_KEYS_B22_1 + ") VALUES (?,?)";
 
         try {
-            Connection connection = ConnectionManager.open();
-            PreparedStatement preparedStatement = connection.prepareStatement(createPersonB22_1);
-            preparedStatement.setString(1,nameText);
-            preparedStatement.setString(2,keyText);
-            preparedStatement.executeUpdate();
+            if(!nameText.equals("")) {
 
-            preparedStatement.close();
-            connection.close();
+                Connection connection = ConnectionManager.open();
+                PreparedStatement preparedStatement = connection.prepareStatement(createPersonB22_1);
 
-            textLabel.setTextFill(Color.FORESTGREEN);
-            textLabel.setText("Успешно добавлено");
+                preparedStatement.setString(1, nameText);
+                preparedStatement.setString(2, keyText);
+                preparedStatement.executeUpdate();
+
+                preparedStatement.close();
+                connection.close();
+
+                textLabel.setTextFill(Color.FORESTGREEN);
+                textLabel.setText("Успешно добавлено");
+            }else {
+                textLabel.setTextFill(Color.RED);
+                textLabel.setText("Поле ФИО не может быть пустым");
+            }
+
         } catch (SQLException e) {
             textLabel.setTextFill(Color.RED);
             textLabel.setText("Неудачное добавление");
@@ -87,24 +82,31 @@ public class HelloController {
         String createPersonB22_2 = "INSERT INTO keys_people ("+ Const.NAME_PERSON +", " + Const.LIST_OF_KEYS_B22_2 + ") VALUES (?,?)";
 
         try {
-            Connection connection = ConnectionManager.open();
-            PreparedStatement preparedStatement = connection.prepareStatement(createPersonB22_2);
-            preparedStatement.setString(1,nameText);
-            preparedStatement.setString(2,keyText);
-            preparedStatement.executeUpdate();
+            if (!nameText.equals("")) {
+                Connection connection = ConnectionManager.open();
+                PreparedStatement preparedStatement = connection.prepareStatement(createPersonB22_2);
+                preparedStatement.setString(1, nameText);
+                preparedStatement.setString(2, keyText);
+                preparedStatement.executeUpdate();
 
-            preparedStatement.close();
-            connection.close();
+                preparedStatement.close();
+                connection.close();
 
-            textLabel.setTextFill(Color.FORESTGREEN);
-            textLabel.setText("Успешно добавлено");
+                textLabel.setTextFill(Color.FORESTGREEN);
+                textLabel.setText("Успешно добавлено");
+            }else {
+                textLabel.setTextFill(Color.RED);
+                textLabel.setText("Поле ФИО не может быть пустым");
+            }
         } catch (SQLException e) {
-            System.out.println("Неудачное добавление"); e.printStackTrace();
+            textLabel.setTextFill(Color.RED);
+            textLabel.setText("Неудачное добавление");
+            e.printStackTrace();
         }
     }
 
-    public void setMainButtonMore(){
-        mainButtonMore.getScene().getWindow().hide();
+    public void setEditListOfKey(){
+        mainButtonFirst.getScene().getWindow().hide();
 
         FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("app.fxml"));
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.*?>
@@ -15,29 +16,33 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.keys.HelloController">
    <children>
-      <Button fx:id="mainButtonMore" layoutX="698.0" layoutY="22.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="81.0" style="-fx-background-color: #F39c63;" text="меню">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
       <ImageView fitHeight="98.0" fitWidth="73.0" layoutX="571.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../java/assets/sut.png" />
          </image>
       </ImageView>
-      <Label graphicTextGap="1.0" layoutX="241.0" layoutY="23.0" prefHeight="64.0" prefWidth="318.0" text="SPBGUT keys" textAlignment="CENTER" textFill="#f2e0d1">
+      <Label graphicTextGap="1.0" layoutX="241.0" layoutY="23.0" prefHeight="64.0" prefWidth="318.0" text="SPBGUT keys" textAlignment="CENTER">
          <font>
             <Font name="Bell MT" size="52.0" />
          </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0" startX="0.33495145631067963">
+               <stops>
+                  <Stop color="#e18b45" />
+                  <Stop color="#e08b46" offset="0.007246376811594203" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
       </Label>
-      <AnchorPane layoutY="108.0" prefHeight="495.0" prefWidth="800.0" style="-fx-background-color: fafafa;">
+      <AnchorPane layoutY="108.0" prefHeight="495.0" prefWidth="800.0" style="-fx-background-color: #D3D3D3;">
          <children>
-            <Button fx:id="mainButtonSecond" layoutX="454.0" layoutY="383.0" mnemonicParsing="false" prefHeight="81.0" prefWidth="113.0" style="-fx-background-color: #F39c63;" text="Б22-2">
+            <Button fx:id="mainButtonSecond" layoutX="454.0" layoutY="383.0" mnemonicParsing="false" onAction="#setMainButtonSecond" prefHeight="64.0" prefWidth="113.0" style="-fx-background-color: #F39c63;" text="Б22-2">
                <font>
                   <Font size="25.0" />
                </font>
             </Button>
-            <Button fx:id="mainButtonFirst" layoutX="249.0" layoutY="383.0" mnemonicParsing="false" prefHeight="81.0" prefWidth="113.0" style="-fx-background-color: #F39c63;" text="Б22-1">
+            <Button fx:id="mainButtonFirst" layoutX="249.0" layoutY="383.0" mnemonicParsing="false" onAction="#setMainButtonFirst" prefHeight="64.0" prefWidth="113.0" style="-fx-background-color: #F39c63;" text="Б22-1">
                <font>
                   <Font size="25.0" />
                </font>
@@ -46,9 +51,9 @@
                <font>
                   <Font size="20.0" />
                </font></TextField>
-            <Text layoutX="226.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Добавление пользователя">
+            <Text fill="#050505c8" layoutX="8.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Добавление пользователя" textAlignment="CENTER" wrappingWidth="784.537109375">
                <font>
-                  <Font size="30.0" />
+                  <Font name="Arial Narrow" size="30.0" />
                </font>
             </Text>
             <TextArea fx:id="textFieldForKeys" layoutX="249.0" layoutY="157.0" prefHeight="149.0" prefWidth="318.0" promptText="Введите список ключей">
@@ -60,6 +65,22 @@
                   <Font name="System Bold" size="25.0" />
                </font>
             </Label>
+            <MenuBar layoutX="14.0" layoutY="14.0" opacity="0.5" prefHeight="32.0" prefWidth="131.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="Меню">
+                  <items>
+                    <MenuItem fx:id="editListOfKey" mnemonicParsing="false" onAction="#setEditListOfKey" text="Редактировать список ключей" />
+                        <MenuItem mnemonicParsing="false" text="Просмотр списка ключей" />
+                        <MenuItem mnemonicParsing="false" text="Удалить пользователя" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Помощь">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
          </children>
          <opaqueInsets>
             <Insets />
